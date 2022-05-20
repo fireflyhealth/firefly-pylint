@@ -29,3 +29,7 @@ git-hooks: venv/bin/pre-commit
 
 venv/bin/pre-commit:
 	$(MAKE) python-deps
+
+.PHONY: lint
+lint: python-deps
+	pre-commit run --from-ref origin/HEAD --to-ref HEAD
