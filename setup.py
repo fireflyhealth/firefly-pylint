@@ -10,7 +10,7 @@ with open("README.md", encoding="utf-8") as readme, open(
     LONG_DESCRIPTION = readme.read() + "\n" + changelog.read()
 
 setup(
-    name="firefly-pylint/",
+    name="firefly-pylint",
     url="https://github.com/fireflyhealth/firefly-pylint/",
     author="FireflyHealth",
     description="Pylint plugin for Firefly stack",
