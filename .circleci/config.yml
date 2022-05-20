@@ -1,0 +1,39 @@
+version: 2.1
+
+executors:
+  python:
+    docker:
+      - image: cimg/python:3.7.9
+
+jobs:
+  test:
+    executor: python
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps-{{ checksum "requirements.txt" }}
+      - run: make python-deps
+      - run: make test
+      - save_cache:
+          key: deps-{{ checksum "requirements.txt" }}
+          paths:
+            - "/home/circleci/.cache/pip/"
+            - "/home/circleci/.pyenv/versions/"
+            - "/home/circleci/.local/lib/"
+            - "/home/circleci/.local/bin/"
+
+  lint:
+    executor: python
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps-{{ checksum "requirements.txt" }}
+      - run: make python-deps
+      - run: make lint
+
+workflows:
+  version: 2
+  on_commit:
+    jobs:
+      - test
+      - lint
