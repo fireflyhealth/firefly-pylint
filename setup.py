@@ -4,8 +4,8 @@ Setup module for Pylint plugin for Firefly.
 """
 from setuptools import find_packages, setup
 
-with open("README.rst", encoding="utf-8") as readme, open(
-    "CHANGELOG.rst", encoding="utf-8"
+with open("README.md", encoding="utf-8") as readme, open(
+    "CHANGELOG.md", encoding="utf-8"
 ) as changelog:
     LONG_DESCRIPTION = readme.read() + "\n" + changelog.read()
 
