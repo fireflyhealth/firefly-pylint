@@ -1,6 +1,7 @@
 from firefly_pylint.lint_checkers.deprecated_decorators import (  # noqa
     StdlibCheckerWithAdditionalDeprecatedDecorators,
-    register,
 )
 
-register = register
+
+def register(linter):
+    linter.register_checker(StdlibCheckerWithAdditionalDeprecatedDecorators(linter))
