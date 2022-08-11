@@ -26,7 +26,7 @@ setup(
         "for_tests": [
             "astroid==2.11.5",
             "pytest==6.1.1",
-            "Django==3.2.14",
+            "Django==3.2.15",
             "pylint==2.13.9",
         ],
     },
